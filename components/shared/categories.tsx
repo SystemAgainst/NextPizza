@@ -16,7 +16,8 @@ export const Categories: React.FC<Props> = ({ className }) => {
                     'flex items-center font-bold h-11 rounded-2xl px-5',
                     activeCategory === index && 'bg-white shadow-md shadow-gray-200 text-primary'
                 )}
-                   key={index}>
+                   key={index}
+                >
                     <button>{category}</button>
                 </a>
             ))}
