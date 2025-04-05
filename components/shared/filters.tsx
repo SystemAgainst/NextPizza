@@ -1,13 +1,17 @@
+'use client';
+
+import { FC } from "react";
 import { cn } from "@/lib/utils";
 import { Title } from "./title";
-import { FilterCheckbox } from "@/components/shared";
+import { FilterCheckbox, CheckboxFiltersGroup } from "@/components/shared";
 import { Input, RangeSlider } from "@/components/ui";
+import { CheckboxFiltersGroupDefaultItems, CheckboxFiltersGroupItems } from "@/constants";
 
 interface Props {
     className?: string;
 }
 
-export const Filters: React.FC<Props> = ({ className }) => {
+export const Filters: FC<Props> = ({ className }) => {
     return (
         <div className={cn('', className)}>
             <Title text="Фильтрация" size="sm" className="mb-5 font-bold" />
@@ -25,6 +29,14 @@ export const Filters: React.FC<Props> = ({ className }) => {
                 </div>
                 <RangeSlider min={0} max={5000} step={10} value={[0, 5000]} />
             </div>
+
+            <CheckboxFiltersGroup
+                className="mt-5"
+                title="Ингридиенты"
+                limit={6}
+                defaultItems={CheckboxFiltersGroupDefaultItems}
+                items={CheckboxFiltersGroupItems}
+            />
         </div>
     );
-}
+};
